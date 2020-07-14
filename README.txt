@@ -1,10 +1,28 @@
+Word Sense Disambiguation: HyperLex
+In this assignment, I took a raw corpus (which will be uploaded here), and run the hyperlex algorithm on it. HyperLex, 
+It is an unsupervised WSD algorithm, where the aim is to take all the possible collocations of a word.
+
+
+The algorithm of HyperLex is as follows:
+
+Tokenize the corpus into sentences, and words. Clean the corpus by removing stopwords (using NLTK)
+Define a collocation in a neighborhood. Create pairs of words that occur in the same sentence three words before and three words after. For example, in the sentence: "These people topical notions daily" -> ('topical', 'notions'), ('topical', 'daily') etc.
+Rank these collocations based on frequency and create a graph (which words occur with which words the most). The words in the corpus would be the nodes, their cooccurrence defines an edge, and the frequency of the cooccurrence is the weight of that edge
+Choose any single focus word, and for all the words in its direct neighbourhood and for words which are two-hops away, remove the most popular nodes, until the graph centered around that focus word splits into subgraphs. 
+These words are those which show up in these clusters are those which are most associated with those senses of the word. And voila! Your very own HyperLex implementation. Your assignment is to implement the algorithm described above such that we can input any word in Step 4.
+
+Link to paper: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.66.6499&rep=rep1&type=pdf
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 Different sense clusters of any three words (power, company, catch) as follows:
 
 power:   ['(president,clause,conditions)', '(program,plant,nuclear)', '(stand,want,one)', '(region,japan,also)']
 company: ['(said,million,year)', '(number,double,role)', '(japanese,press,members)', '(tax,flat,financing)']
 catch:   ['(glass,says,trading)', '(playing,leading,japanese)']
-
-
 
 
 =====================================================================================================================================================
@@ -52,8 +70,4 @@ appropriatly os.chdir("D:\\Arvin\ArtInt\\IIIT PGSSP\\2019-20 Spring\\Assignments
 This Program needs a input file (we need pass this file name as run parameter) which will have a wsingle root word (for which we need to generate 
 the different senses clusters)
 This program will print/display the different sense of cluster words for given root word on the screen.
-
-
-
-
 
